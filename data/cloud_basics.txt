@@ -1,0 +1,9 @@
+Cloud Computing is the on-demand delivery of IT resources over the internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, you can access technology services, such as computing power, storage, and databases, from a cloud provider like AWS, Azure, or Google Cloud.
+
+The three main service models are:
+
+Infrastructure as a Service (IaaS): Provides basic building blocks for cloud IT (virtual servers).
+
+Platform as a Service (PaaS): Removes the need for organizations to manage underlying infrastructure.
+
+Software as a Service (SaaS): Provides a completed product that is run and managed by the service provider.
