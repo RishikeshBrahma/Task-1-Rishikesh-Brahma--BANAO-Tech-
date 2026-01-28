@@ -4,11 +4,8 @@ from typing import TypedDict
 from langchain_community.llms import LlamaCpp
 from langgraph.graph import StateGraph, END
 from database import get_retriever
-
-# Path to the TinyLlama model
 MODEL_PATH = os.path.join("..", "models", "tinyllama-1.1b-chat-v1.0.Q5_K_M.gguf")
 
-# Initialize the LLM with local parameters
 llm = LlamaCpp(
     model_path=MODEL_PATH,
     temperature=0.1,
@@ -37,8 +34,6 @@ def generate(state: AgentState):
     response = llm.invoke(prompt)
     latency = time.time() - start_time
     return {"answer": response, "latency": latency}
-
-# Build LangGraph workflow
 workflow = StateGraph(AgentState)
 workflow.add_node("retrieve", retrieve)
 workflow.add_node("generate", generate)
@@ -46,10 +41,8 @@ workflow.set_entry_point("retrieve")
 workflow.add_edge("retrieve", "generate")
 workflow.add_edge("generate", END)
 
-# This is the 'app' object imported by api.py
 app = workflow.compile()
 
-# This loop ONLY runs if you run 'python main.py'
 if __name__ == "__main__":
     print("\n--- STUDY BUDDY CHATBOT MODE ---")
     while True:
